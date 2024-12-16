@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Машинка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #36c6ff, #4aff36 );
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .road {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            height: 100px;
+            background: #444;
+        }
+
+        .car {
+            position: absolute;
+            bottom: 100px;
+            width: 200px;
+            height: 60px;
+            background: red;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            animation: drive 1s linear forwards;
+        }
+
+        .car::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50px;
+            width: 100px;
+            height: 40px;
+            background: #000000;
+            border-radius: 5px 5px 0px 0px;
+        }
+
+        .wheel {
+            position: relative;
+            top: 35px;
+            width: 50px;
+            height: 50px;
+            background: black;
+            border-radius: 50%;
+        }
+
+        #word{
+            display: none;
+            position: relative;
+            left: none;
+            top: 250px;
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 64px;
+            color: white;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+
+        #word.visible{
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        @keyframes drive {
+            from {
+                left: -520px;
+            }
+            to {
+                left: calc(100% - 0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="word">Не гоняйте пацаны!</div>
+    <div class="road"></div>
+    <div class="car">
+        <div class="wheel"></div>
+        <div class="wheel"></div>
+    </div>
+</body>
+
+
+<script>
+    setTimeout(function() {
+        document.getElementById('word').style.display = 'block'; }, 1200);
+</script>
+
+
+</html>
